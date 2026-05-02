@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: arent-system
+    runtime: php
+    buildCommand: composer install --no-dev && php artisan config:cache && php artisan route:cache && php artisan view:cache && npm install && npm run build
+    startCommand: php artisan serve --host=0.0.0.0 --port=10000
+    envVars:
+      - key: APP_NAME
+        value: "A-Rent System"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-d7qsggu7r5hc738v5cb0-a
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: arent_system
+      - key: DB_USERNAME
+        value: arent_user
+      - key: DB_PASSWORD
+        value: gQ1ZHcVsYo6sBxdajwtH4zHg3pyyCol0
