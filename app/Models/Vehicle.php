@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Vehicle extends Model
+{
+    protected $fillable = [
+        'brand',
+        'model',
+        'year',
+        'plate_number',
+        'price_per_day',
+        'status',
+        'image_url',
+    ];
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
+}
